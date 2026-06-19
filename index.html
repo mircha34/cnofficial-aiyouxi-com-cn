@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 一处安稳的入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffe3c9 0%, #ffd4b3 45%, #ffc8a2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            line-height: 1.7;
+            color: #2e241e;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 250, 245, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 20px 40px -12px rgba(160, 90, 60, 0.25),
+                        0 8px 16px -4px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+        }
+
+        /* 开场短句 */
+        .opening {
+            font-size: 1.4rem;
+            font-weight: 430;
+            letter-spacing: 0.02em;
+            color: #7b5440;
+            margin-bottom: 0.25rem;
+            line-height: 1.5;
+        }
+        .opening span {
+            background: #fbede2;
+            padding: 0.05rem 0.4rem;
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        /* 承接段落 */
+        .intro {
+            margin: 1.6rem 0 1.2rem 0;
+            font-size: 1rem;
+            color: #3d2f28;
+        }
+        .intro p {
+            margin-bottom: 0.9rem;
+        }
+
+        /* 特点列表 — 更温和的卡片感 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1rem;
+            margin: 1.6rem 0 1.4rem 0;
+            list-style: none;
+        }
+        .feature-grid li {
+            background: #fff8f2;
+            border-radius: 60px;
+            padding: 0.6rem 1.3rem;
+            font-size: 0.95rem;
+            border: 1px solid #eedacb;
+            color: #382d26;
+            box-shadow: 0 2px 4px rgba(170, 120, 90, 0.06);
+            flex: 1 0 auto;
+        }
+
+        /* 按钮感链接 —— 圆角、温暖、内敛 */
+        .link-button {
+            display: inline-block;
+            background: #e7cdb9;
+            color: #33261e;
+            padding: 0.5rem 1.2rem 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.15s, box-shadow 0.15s;
+            border: 1px solid #dbbc9f;
+            letter-spacing: 0.01em;
+            box-shadow: 0 2px 6px rgba(150, 100, 70, 0.08);
+            white-space: nowrap;
+        }
+        .link-button:hover {
+            background: #ddc0a8;
+            box-shadow: 0 4px 12px rgba(150, 100, 70, 0.15);
+            border-color: #cbab8e;
+        }
+
+        /* 句子中的自然链接 */
+        .inline-site-link {
+            color: #9f6f50;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dcbfa8;
+            padding-bottom: 0.05rem;
+            transition: border-color 0.1s, color 0.1s;
+        }
+        .inline-site-link:hover {
+            color: #7d553d;
+            border-bottom-color: #b28563;
+        }
+
+        /* 温和结尾 + 细小信息 */
+        .closing {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eedbcb;
+            font-size: 0.95rem;
+            color: #5a463b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem 0.5rem;
+        }
+        .closing-note {
+            max-width: 70%;
+        }
+        .closing small {
+            opacity: 0.7;
+            font-size: 0.85rem;
+        }
+
+        .faq-hint {
+            background: #f7ede4;
+            border-radius: 18px;
+            padding: 0.8rem 1.2rem;
+            margin: 1.4rem 0 0.2rem 0;
+            font-size: 0.95rem;
+            border-left: 5px solid #dbb99e;
+        }
+        .faq-hint strong {
+            color: #6a4b38;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e8d4c4;
+            margin: 1rem 0;
+        }
+
+        .quiet-tag {
+            color: #8d6e5a;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+
+        <!-- 开场短句 -->
+        <div class="opening">
+            <span>✦</span> 有些地方，不必反复寻找，只需记得一个名字。
+        </div>
+
+        <!-- 承接段落：从稳定入口和说明的角度展开 -->
+        <div class="intro">
+            <p>如果你需要一个安静、直接的落脚点，不妨把 <a href="https://cnofficial-aiyouxi.com.cn" class="inline-site-link">爱游戏</a> 当作一个老地方。它更像一扇半掩的门，没有闪烁的横幅，也省去了层层跳转。页面本身保持简洁，把选择交还给你——想了解什么，自己慢慢看。</p>
+            <p>从玩家的角度来说，最踏实的体验往往始于一个不迷路的入口。这里没有夸大其词的引导，只有按部就班的分类和信息，像一位不多话的向导，指个方向便安静退到旁边。</p>
+        </div>
+
+        <!-- 特点列表：卡片式圆角列表 -->
+        <ul class="feature-grid">
+            <li>◈ 内容索引直接 · 分类清楚</li>
+            <li>◈ 更新节奏稳定 · 不堆叠通知</li>
+            <li>◈ 界面克制 · 视觉负担小</li>
+            <li>◈ 适合慢慢翻阅 · 也可以快速定位</li>
+        </ul>
+
+        <!-- 一段场景式描述，替换 “常见FAQ摘要” 但保留实质 -->
+        <div class="faq-hint">
+            <strong>▸ 一些你可能关心的事</strong>
+            <div style="margin-top: 0.35rem;">
+                页面主要面向对游戏资讯和资源有需求的日常访客，不设强制注册或弹窗。如果你习惯在一个干净的环境里浏览内容，<a href="https://cnofficial-aiyouxi.com.cn" class="inline-site-link">爱游戏</a> 的布局应该会让你觉得自在。常见问题如“如何查找特定内容”“信息更新频率”在页面底部都有简明说明。
+            </div>
+        </div>
+
+        <!-- 温和结尾 + 按钮感链接（句中自然嵌合） -->
+        <div class="closing">
+            <div class="closing-note">
+                <span style="display: inline-block; margin-right: 0.3rem;">⇢</span>
+                如果你还没去过，现在就可以去 
+                <a href="https://cnofficial-aiyouxi.com.cn" class="link-button">爱游戏</a> 
+                <span style="margin-left: 0.2rem;">看一看。</span>
+                <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #6b5546;">
+                    页面始终开放，无需额外步骤。
+                </div>
+            </div>
+            <small>— 稳定入口 · 安静说明 —</small>
+        </div>
+
+        <!-- 一点点细微补充，保持内容真实度 -->
+        <hr>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.2rem 1.2rem; font-size: 0.85rem; color: #7f6656; justify-content: space-between;">
+            <span>信息索引 · 社区资源 · 游戏观察</span>
+            <span class="quiet-tag">无强制跳转 · 自然浏览</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mircha34.github.io/cnofficial-aiyouxi-com-cn/sitemap.xml
