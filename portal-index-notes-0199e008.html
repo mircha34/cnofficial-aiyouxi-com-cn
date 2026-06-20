@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>简明指南 · 中彩网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f7fafc;
+            color: #1a2332;
+            line-height: 1.75;
+            padding: 1.5rem 1rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ---------- 网格背景 + 卡片感 ---------- */
+        .blog-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 50, 60, 0.06);
+            padding: 2rem 1.8rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+            border: 1px solid rgba(0, 150, 136, 0.08);
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 100, 100, 0.10);
+        }
+
+        /* 网格卡片装饰（极简线格） */
+        .grid-decor {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-decor::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 150, 136, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* ---------- 色彩点缀 (蓝绿) ---------- */
+        .accent-light {
+            color: #00796b;
+        }
+
+        .accent-border-bottom {
+            border-bottom: 3px solid #009688;
+            padding-bottom: 0.25rem;
+            display: inline-block;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-right: 0.5rem;
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #009688;
+            color: #009688;
+            font-weight: 500;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-ghost:hover {
+            background: #009688;
+            color: #ffffff;
+            border-color: #009688;
+        }
+
+        /* ---------- 版式细节 ---------- */
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+            color: #0a2e2a;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #3a5a5a;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            border-left: 4px solid #009688;
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 550;
+            margin: 1.8rem 0 1rem 0;
+            color: #1b3b37;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #2b3e3e;
+            font-size: 1rem;
+        }
+
+        .intro {
+            font-size: 1.08rem;
+            color: #1f3b3b;
+        }
+
+        .quote-block {
+            background: #f0f7f5;
+            border-left: 6px solid #009688;
+            padding: 1.2rem 1.5rem;
+            margin: 1.8rem 0;
+            border-radius: 0 18px 18px 0;
+            color: #20554e;
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+        .quote-block strong {
+            font-weight: 600;
+            color: #00695c;
+        }
+
+        .faq-item {
+            margin: 1rem 0 0.8rem;
+        }
+
+        .faq-q {
+            font-weight: 550;
+            color: #006360;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-q::before {
+            content: "▹";
+            color: #009688;
+            font-size: 1.2rem;
+        }
+
+        .faq-a {
+            margin: 0.2rem 0 0 1.6rem;
+            color: #315a55;
+        }
+
+        .visit-line {
+            background: #e4eeec;
+            border-radius: 48px;
+            padding: 0.8rem 1.6rem;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.2rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        .visit-line a {
+            color: #00695c;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(0, 150, 136, 0.3);
+            transition: border-color 0.2s;
+        }
+
+        .visit-line a:hover {
+            border-bottom-color: #009688;
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: #607575;
+            margin-top: 2.5rem;
+            border-top: 1px solid #d0e2df;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        /* ---------- 移动端 ---------- */
+        @media (max-width: 560px) {
+            body {
+                padding: 0.8rem 0.6rem 2.5rem;
+            }
+            .blog-card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 24px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .subhead {
+                font-size: 1rem;
+                padding-left: 0.8rem;
+            }
+            .visit-line {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .blog-card {
+                padding: 1rem 0.8rem;
+            }
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- Hero 标题区（简洁博客式） -->
+    <div class="blog-card grid-decor" style="padding-bottom: 1.6rem;">
+        <h1>中彩网 · 简明指南</h1>
+        <div class="subhead">
+            从信息获取到平台认识，一篇带你理清脉络
+        </div>
+        <p class="intro">
+            无论你是初次接触还是希望更系统地了解，这篇短文从站点定位、内容类型到访问提醒，为你梳理出一份实用的参考。所有信息均基于公开资料和平台常态运营整理。
+        </p>
+        <div style="margin: 0.8rem 0 0.2rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            <span class="tag">信息聚合</span>
+            <span class="tag">数据参考</span>
+            <span class="tag">行业观察</span>
+        </div>
+    </div>
+
+    <!-- 正文段落 1：站点定位与内容看点 -->
+    <div class="blog-card">
+        <h2>站内内容：信息聚合与实用参考</h2>
+        <p>
+            作为长期运营的信息平台，<a href="https://portal-index-zhcw.com" style="color:#00796b; font-weight:500; text-decoration: underline; text-underline-offset:3px; text-decoration-color: rgba(0,150,136,0.3);">中彩网</a>主要聚合彩票行业相关的新闻动态、数据图表、政策解读与玩法说明。对于关注行业趋势或希望了解基础规则的用户而言，这里提供了一种结构化的浏览路径。
+        </p>
+        <p>
+            平台内设有多个内容版块，涵盖开奖号码历史、彩种介绍、公益金用途摘要以及部分行业分析。信息组织以清晰、直接为原则，适合快速查阅与横向对比。
+        </p>
+    </div>
+
+    <!-- 正文段落 2：特点与场景 · 嵌入引用块 -->
+    <div class="blog-card">
+        <h2>特点与适用场景</h2>
+        <p>
+            不同于社交讨论或即时资讯流，中彩网更偏向于<strong class="accent-light">资料型内容</strong>的整理与展示。如果你需要回顾某类彩种的规则演变、查阅往期开奖号码的统计分布，或者了解彩票公益金的具体分配案例，这里往往能提供相对完整的条目。
+        </p>
+
+        <!-- 引用提示块 -->
+        <div class="quote-block">
+            <strong>一点提醒</strong>：平台上的所有数据与规则说明均以官方发布为准。实际执行中若有调整，请以各地彩票机构的最新公告为最终依据。<br>
+            建议在使用过程中交叉核对关键信息，尤其是涉及兑奖期限、游戏变更等时效性较强的内容。
+        </div>
+
+        <p>
+            对于研究型用户（例如撰写行业简报或参与学术观察），站内归档的往期数据可以作为参考素材之一。同时，新人也可以从彩种百科类页面入手，对彩票机制形成基本认知。
+        </p>
+    </div>
+
+    <!-- 正文段落 3：访问提示 + FAQ 摘要 -->
+    <div class="blog-card">
+        <h2>访问提示与 FAQ 摘要</h2>
+        <p>
+            在访问任何信息平台时，保持清晰的预期与合理的操作习惯都很重要。以下是基于常见疑问整理的三条要点：
+        </p>
+
+        <div class="faq-item">
+            <div class="faq-q">信息更新频率如何？</div>
+            <div class="faq-a">开奖号码类内容通常在开奖后数分钟内更新；政策与新闻类则视发布节奏而定，工作日更新较密集。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要注册或付费？</div>
+            <div class="faq-a">目前绝大部分内容可公开浏览，部分深度数据或历史归档可能需登录后查看，但无强制收费门槛。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">移动端浏览体验如何？</div>
+            <div class="faq-a">站点已适配主流移动设备，卡片与列表布局清晰，推荐使用系统浏览器直接打开。</div>
+        </div>
+
+        <!-- 自然嵌入链接的访问句 -->
+        <div class="visit-line">
+            <span>📍 如需直接浏览内容，可在浏览器地址栏输入</span>
+            <a href="https://portal-index-zhcw.com">中彩网</a>
+            <span>，或通过书签保存以便日常查阅。</span>
+        </div>
+    </div>
+
+    <!-- 结尾段落：保持克制的收束 -->
+    <div class="blog-card" style="background: #f2f9f7;">
+        <p style="font-size: 0.98rem; margin-bottom: 0.3rem;">
+            <span style="background: #009688; color: white; padding: 0.1rem 1rem; border-radius: 30px; font-size: 0.7rem; letter-spacing: 0.5px; display: inline-block; margin-right: 0.3rem;">📋</span>
+            本页为独立介绍页面，内容基于公开资料整理，不构成任何投资或参与建议。请保持理性，合理分配时间与精力。
+        </p>
+        <p style="color: #4a6b67; font-size: 0.9rem; margin: 0.6rem 0 0;">
+            最后提醒：所有涉及资金与决策的行为，请务必以官方渠道信息为准。
+        </p>
+    </div>
+
+    <div class="footnote">
+        简明指南 · 保持清醒与好奇
+    </div>
+</div>
+</body>
+</html>
